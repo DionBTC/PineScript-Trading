@@ -1,2 +1,3 @@
 # Trading_Systems
-This Repository contains useful resources related to innovation, editing and finding trading edge when creating Systems.
+**AIM** - To generate System ideas, calculate System EV, and provide System backtesting codes.
+**Author** - @DionBTC
