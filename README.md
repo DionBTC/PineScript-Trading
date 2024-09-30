@@ -1,2 +1,2 @@
-# PineScript-Trading
-This Repository contains PineScript coded files that can be used only in TradingView for backtesting system ideas
+# Trading_Systems
+This Repository contains useful resources related to innovation, editing and finding trading edge when creating Systems.
