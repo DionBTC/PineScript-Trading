@@ -1,30 +1,42 @@
 #include <iostream>
+#include<fstream>
+#include <string>
 using namespace std;
 
 class systemEV{
     float winrate, lossrate, totalR, avgR, EV;
-    int trades;
+    int trades, counter=1;
     public:
     void findEV(){
         cout<<"Enter the number of trades taken (Please ensure that it is in integer format)\n";
         cin>>trades;
         cout<<"Enter the winrate percentage of the system\n";
         cin>>winrate;
-        cout<<"Enter the total Risk/Reward of the system for the "<<trades<<"trades\n";
+        cout<<"Enter the total Risk/Reward of the system for the "<<trades<<" trades\n";
         cin>>totalR;
-        
+
         //calculation
         lossrate=100-winrate;
         avgR=(totalR+lossrate)/trades;
         EV=((winrate*avgR)-lossrate)/100;
-        
+
         cout<<"The Expected Value of this system is "<<EV<<endl;
     }
     void writeEV(){
-        
+        cout<<"Please enter the EV of the system \n";
+        cin>>EV;
+        ofstream MyFile("EV_Log.txt");
+        MyFile <<"System Log "<<counter<<": EV = "<<EV<<endl;
+        MyFile.close();
+        counter++;
     }
     void viewEV(){
-        
+        string text;
+        ifstream MyReadFile("EV_Log.txt");
+        while (getline (MyReadFile, text)) {
+            cout << text;
+        }
+        MyReadFile.close();
     }
 };
 
@@ -48,7 +60,8 @@ int main() {
         cout<<"Thank you for using the program\n";
         else
         cout<<"Please enter valid input\n";
-    }while(counter!=4)
+    }while(counter!=4);
     return 0;
 }
+
 
